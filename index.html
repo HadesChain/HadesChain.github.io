@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>哈迪斯 . 博彩公链</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://lib.baomitu.com/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="https://lib.baomitu.com/OwlCarousel2/2.3.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://lib.baomitu.com/OwlCarousel2/2.3.1/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="https://lib.baomitu.com/aos/2.0.4/aos.css">
+
+    <link rel="stylesheet" href="https://lib.baomitu.com/ionicons/4.0.0-19/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_955055_3w9txr6ae9j.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+      .partners {
+        display: inline-block;
+        width: 140px;
+        margin: 8px 16px;
+      }
+      /* ================ The Timeline ================ */
+
+.timeline {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 1em 0;
+  list-style-type: none;
+}
+
+.timeline:before {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  content: ' ';
+  display: block;
+  width: 6px;
+  height: 100%;
+  margin-left: -3px;
+  background: rgb(80,80,80);
+  background: -moz-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(30,87,153,1)), color-stop(100%,rgba(125,185,232,1)));
+  background: -webkit-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: -o-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: -ms-linear-gradient(top, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  background: linear-gradient(to bottom, rgba(80,80,80,0) 0%, rgb(80,80,80) 8%, rgb(80,80,80) 92%, rgba(80,80,80,0) 100%);
+  
+  z-index: 5;
+}
+
+.timeline li {
+  padding: 1em 0;
+}
+
+.timeline li:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.direction-l {
+  position: relative;
+  width: 50%;
+  float: left;
+  text-align: right;
+}
+
+.direction-r {
+  position: relative;
+  width: 50%;
+  float: right;
+}
+
+.flag-wrapper {
+  position: relative;
+  display: inline-block;
+  
+  text-align: center;
+}
+
+.flag {
+  position: relative;
+  display: inline;
+  background: rgb(248,248,248);
+  padding: 6px 10px;
+  border-radius: 5px;
+  
+  font-weight: 600;
+  text-align: left;
+}
+
+.direction-l .flag {
+  -webkit-box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  box-shadow: -1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+}
+
+.direction-r .flag {
+  -webkit-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  -moz-box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.15), 0 0 1px rgba(0,0,0,0.15);
+}
+
+.direction-l .flag:before,
+.direction-r .flag:before {
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  content: ' ';
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-top: -10px;
+  background: #fff;
+  border-radius: 10px;
+  border: 4px solid rgb(255,80,80);
+  z-index: 10;
+}
+
+.direction-r .flag:before {
+  left: -6px;
+}
+
+.direction-l .flag:after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-left-color: rgb(248,248,248);
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.direction-r .flag:after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  height: 0;
+  width: 0;
+  margin-top: -8px;
+  border: solid transparent;
+  border-right-color: rgb(248,248,248);
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.time-wrapper {
+  display: inline;
+  
+  line-height: 1em;
+  font-size: 0.66666em;
+  color: rgb(250,80,80);
+  vertical-align: middle;
+}
+
+.direction-l .time-wrapper {
+  float: left;
+}
+
+.direction-r .time-wrapper {
+  float: right;
+}
+
+.time {
+  display: inline-block;
+  padding: 4px 6px;
+  background: rgb(248,248,248);
+}
+
+.desc {
+  margin: 1em 0.75em 0 0;
+  
+  font-size: 0.77777em;
+  font-style: italic;
+  line-height: 1.5em;
+}
+
+.direction-r .desc {
+  margin: 1em 0 0 0.75em;
+}
+
+/* ================ Timeline Media Queries ================ */
+
+@media screen and (max-width: 660px) {
+
+.timeline {
+  width: 100%;
+}
+
+.timeline li {
+  padding: 2em 0;
+}
+
+.direction-l,
+.direction-r {
+  float: none;
+  width: 100%;
+
+  text-align: center;
+}
+
+.flag-wrapper {
+  text-align: center;
+}
+
+.flag {
+  background: rgb(255,255,255);
+  z-index: 15;
+}
+
+.direction-l .flag:before,
+.direction-r .flag:before {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  content: ' ';
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  background: #fff;
+  border-radius: 10px;
+  border: 4px solid rgb(255,80,80);
+  z-index: 10;
+}
+
+.direction-l .flag:after,
+.direction-r .flag:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -8px;
+  height: 0;
+  width: 0;
+  margin-left: -8px;
+  border: solid transparent;
+  border-bottom-color: rgb(255,255,255);
+  border-width: 8px;
+  pointer-events: none;
+}
+
+.time-wrapper {
+  display: block;
+  position: relative;
+  margin: 4px 0 0 0;
+  z-index: 14;
+}
+
+.direction-l .time-wrapper {
+  float: none;
+}
+
+.direction-r .time-wrapper {
+  float: none;
+}
+
+.desc {
+  position: relative;
+  margin: 1em 0 0 0;
+  padding: 1em;
+  background: rgb(245,245,245);
+  -webkit-box-shadow: 0 0 1px rgba(0,0,0,0.20);
+  -moz-box-shadow: 0 0 1px rgba(0,0,0,0.20);
+  box-shadow: 0 0 1px rgba(0,0,0,0.20);
+  
+  z-index: 15;
+}
+
+.direction-l .desc,
+.direction-r .desc {
+  position: relative;
+  margin: 1em 1em 0 1em;
+  padding: 1em;
+  
+  z-index: 15;
+}
+
+}
+
+@media screen and (min-width: 400px ?? max-width: 660px) {
+
+.direction-l .desc,
+.direction-r .desc {
+  margin: 1em 4em 0 4em;
+}
+
+}
+
+/*==========icon font=============*/
+@font-face {
+    font-family: "iconfont";
+    src: url('data:application/octet-stream;base64,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') format('truetype');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  font-size:50px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 110px;
+  color: #ff5656;
+}
+.icon-H:before {
+  font-family:"iconfont" !important;
+  font-style:normal; 
+  content: "\e67c";
+}
+    </style>
+  </head>
+  <body>
+    
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html"><i class="icon-H"></i> <span>Hades</span> <span>Chain</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">首页</a></li>
+	          <li class="nav-item"><a href="https://www.hadeschain.com/download.html" class="nav-link">钱包下载</a></li>
+	          <li class="nav-item"><a href="./WhitePaper.pdf" class="nav-link">白皮书</a></li>
+	          <li class="nav-item"><a href="https://explorer.hadeschain.org" class="nav-link">浏览器</a></li>
+              <li class="nav-item"><a href="./bridge.html" class="nav-link">链桥</a></li>
+	          <li class="nav-item"><a href="./faq.html" class="nav-link">常见问题</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
+
+    <section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url(images/bg_2.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+			<div class="overlay js-fullheight"></div>
+			<a class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=N5Rfjd_C0wM',containment:'#home', showControls:false, autoPlay:true, loop:false, mute:false, startAt:0, opacity:1, quality:'default'}"></a>
+			<div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">哈迪斯 <strong>博彩业</strong>的基础公链</h1>
+          </div>
+        </div>
+      </div>
+		</section>
+
+		<section class="ftco-bible-study">
+			<div class="container-wrap">
+				<div class="col-md-12 wrap">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12 d-md-flex">
+								<div class="one-forth ftco-animate">
+									<h3>首轮预售</h3>
+									<p>哈迪斯用ETH兑换,兑换后自动打币到HDC主链。
+                  首轮预售截止日：2019/04/01</p>
+								</div>
+								<div class="one-half d-md-flex align-items-md-center ftco-animate">
+									<div class="countdown-wrap">
+										<p class="countdown d-flex">
+											<span id="days"></span>
+											<span id="hours"></span>
+											<span id="minutes"></span>
+											<span id="seconds"></span>
+										</p>
+									</div>
+									<div class="button">
+										<p><a href="./bridge.html" class="btn btn-primary p-3">&nbsp;立即兑换&nbsp;</a></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="ftco-section-2">
+      <div class="container-fluid">
+        <div class="section-2-blocks-wrapper d-flex row no-gutters">
+          <div class="img col-md-6 ftco-animate" style="background-image: url('images/about.jpg');">
+          </div>
+          <div class="text col-md-6 ftco-animate">
+            <div class="text-inner align-self-start">
+              
+              <h3>高可靠性 博彩业区块链解决方案</h3>
+              <p>HadesChain 是一种高性能，高可靠性去中心化技术,为业界提供博彩项目底层公链，及智能合约技术。 同时，HadesChain通过网桥，打通BitCoin和Ethereum，使用户可以用哈迪斯币(HDC)与比特币(BTC)、以太坊(ETH)实现互转，让区块链资产不再限于链内孤岛，实现链际互联。</p>
+
+              <p>项目不做ICO，核心团队不预留，不预挖。目标是打造一款不受投资人影响、不受矿霸威胁的中立链，底层链，稳定链。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-6 text-center heading-section ftco-animate">
+            <span class="subheading">Pain Points</span>
+            <h2 class="mb-4">行业痛点</h2>
+            <p>博彩业是全球性产业，规模巨大，同时也充满痛点。传统的博彩平台，在透明性，公平性，便捷性等方面，严重滞后。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><i class="iconfont">&#xe625;</i></div></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">资金不透明</h3>
+                <p>平台资金没有独立审计，资金收入及动向不明，返奖率不供核查。</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><i class="iconfont">&#xe71e;</i></div></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">抽奖不透明</h3>
+                <p>多次曝控制抽奖的丑闻，甚至出现以录播视频代替直播抽奖画面。</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><i class="iconfont">&#xe758;</i></div></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">中奖人不透明</h3>
+                <p>奖池积累过亿后，多次出现神秘人单注倍投掏空奖池。</p>
+              </div>
+            </div>    
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon d-flex justify-content-center mb-3"><i class="iconfont">&#xe67f;</i></div></div>
+              <div class="media-body p-2 mt-3">
+                <h3 class="heading">购买不便</h3>
+                <p>只能到彩票店购买，手机操作不便，不能随时随地下单。</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-8 text-center heading-section heading-section-white ftco-animate">
+              <h2>合作伙伴</h2>
+              <p>
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/20f12a9217ae24e968a719520ffef8f4bea117e5/logo-maker@3x.png" alt="">
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/dc43455cc9fe0bd8b0bf7514f99a7b402b45327e/logo-consensys@3x.png" alt="">
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/7a22c9f2d955a7f46f69de018f6c3994c400ea78/logo-bankor@3x.png" alt="">
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/a62c4b57d72d63405de445308569dfe8b16849f5/logo-infura@3x.png" alt="">
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/8b2e71e793035d01f7972d32eb2d7ff319f8e517/logo-sentinel@3x.png" alt="">
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/401a55b40e0f452c43a84eec8f5d9f23c3dd5963/logo-gitcoin@3x.png" alt="">
+                <img class="partners" src="https://d33wubrfki0l68.cloudfront.net/assets/img/network/3734fe0a39fce77e924c68913b63149b9f506c74/logo-compound@3x.png" alt="">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section testimony-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Project Advantages</span>
+            <h2 class="mb-4">项目优势</h2>
+            <p>区块链是博彩业最佳解决方案。其公开、不可逆、可溯源的特点，让中奖流程、结果公开。智能合约管理奖金池，使项目方无法挪用资金。让博彩行业运行在阳光下。</p>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item text-center">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-4" style="background-image: url(images/justice.png)">
+                  </div>
+                  <div class="text">
+                    <p class="mb-5">合约公开，随机数由第三方生成。</p>
+                    <p class="name">公平透明</p>
+                    <span class="position">Justice</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item text-center">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-4" style="background-image: url(images/compass.png)">
+                  </div>
+                  <div class="text">
+                    <p class="mb-5">出入金与法币无关。</p>
+                    <p class="name">无法律风险</p>
+                    <span class="position">Legal</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item text-center">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-4" style="background-image: url(images/fee.png)">
+                  </div>
+                  <div class="text">
+                    <p class="mb-5">12+6+2共20%返佣。</p>
+                    <p class="name">佣金高</p>
+                    <span class="position">Commission</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item text-center">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-4" style="background-image: url(images/dice.png)">
+                  </div>
+                  <div class="text">
+                    <p class="mb-5">返奖率62%,比传统高3%。</p>
+                    <p class="name">返奖高</p>
+                    <span class="position">Bonus</span>
+                  </div>
+                </div>
+              </div>
+              <div class="item text-center">
+                <div class="testimony-wrap p-4 pb-5">
+                  <div class="user-img mb-4" style="background-image: url(images/exchange.png)">
+                  </div>
+                  <div class="text">
+                    <p class="mb-5">智能合约自动打款，无需申请。</p>
+                    <p class="name">出入金迅速</p>
+                    <span class="position">Automatic</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="ftco-section ftco-counter" id="section-counter">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2>发展目标</h2>
+            <p>哈迪斯链的目标是以区块链重构博彩行业，为赌场提供出入金方案。同时为零售网络提供便捷支付功能。</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="100">0</strong>
+                <span>对接100家赌场出入金渠道</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="1000">0</strong>
+                <span>整合1000家实体博彩店</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+            <div class="block-18 text-center">
+              <div class="text">
+                <strong class="number" data-number="10000">0</strong>
+                <span>发展10,000家便利店兑换点</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section-2 bg-light">
+    	<div class="container-fluid">
+    		<div class="row no-gutters d-flex">
+    			<div class="col-md-6 img d-flex justify-content-end align-items-center">
+            <img src="./images/top.png" alt="" style="width: 100%">
+    			</div>
+    			<div class="col-md-6">
+            <ul class="timeline">
+
+              <!-- Item 1 -->
+              <li>
+                <div class="direction-r">
+                  <div class="flag-wrapper">
+                    <span class="flag">IDO 挖矿</span>
+                    <span class="time-wrapper"><span class="time">2019 Q2</span></span>
+                  </div>
+                  <div class="desc">Initial Drawing Offerings，奖池权益挖矿</div>
+                </div>
+              </li>
+              
+              <!-- Item 2 -->
+              <li>
+                <div class="direction-l">
+                  <div class="flag-wrapper">
+                    <span class="flag">公链上线</span>
+                    <span class="time-wrapper"><span class="time">2018 Q4</span></span>
+                  </div>
+                  <div class="desc">交易速度大幅提高，手续费降至极低。</div>
+                </div>
+              </li>
+
+              <!-- Item 3 -->
+              <li>
+                <div class="direction-r">
+                  <div class="flag-wrapper">
+                    <span class="flag">博彩平台上线</span>
+                    <span class="time-wrapper"><span class="time">2008 Q1</span></span>
+                  </div>
+                  <div class="desc">同时发布数种基于区块的博彩应用</div>
+                </div>
+              </li>
+
+              <!-- Item 4 -->
+              <li>
+                <div class="direction-l">
+                  <div class="flag-wrapper">
+                    <span class="flag">团队成立</span>
+                    <span class="time-wrapper"><span class="time">2017 Q3</span></span>
+                  </div>
+                  <div class="desc">目标为创建稳定、快速的博彩专链</div>
+                </div>
+              </li>
+              
+            </ul>
+
+    			</div>
+    		</div>
+    	</div>
+    </section>
+
+    <section class="ftco-section">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2>发起团队</h2>
+            <p>项目由新加坡区块链投资基金，菲律宾帝国乐透，美国链孚资本共同发起</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ftco-animate">
+            <div class="block-10 d-md-flex align-items-center">
+              <div class="img" style="background-image: url(images/silver.png)"></div>
+              <div class="person-info pl-md-3">
+                <span class="name">SilverChain Fund</span>
+                <span class="position">Singapore</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="block-10 d-md-flex align-items-center">
+              <div class="img" style="background-image: url(images/bet.png)"></div>
+              <div class="person-info pl-md-3">
+                <span class="name">Empire Spirit Lottery</span>
+                <span class="position">Philippines</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 ftco-animate">
+            <div class="block-10 d-md-flex align-items-center">
+              <div class="img" style="background-image: url(images/cf.png)"></div>
+              <div class="person-info pl-md-3">
+                <span class="name">Chainfull Capital</span>
+                <span class="position">USA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="logo"><i class="icon icon-H"><a href="index.html"></i><span>Hades</span><span>Chain</span></a></h2>
+              <p>哈迪斯链具有高性能、跨链交易、低手续费的特点，是为解决博彩业行业痛点而生的专用公链。</p>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Quick Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="https://www.hadeschain.com/download.html" class="py-2 d-block">钱包下载</a></li>
+                <li><a href="./WhitePaper.pdf" class="py-2 d-block">白皮书</a></li>
+                <li><a href="./faq.html" class="py-2 d-block">常见问题</a></li>
+                <li><a href="https://explorer.hadeschain.org" class="py-2 d-block">浏览器</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<div class="block-23 mb-3">
+                  <ul>
+                    <li><span class="icomoon icon-dingwei">&nbsp;&nbsp;</span><span class="text">364 E Main Street Suite 1004 Middletown, Delaware, USA</span></li>
+                    <li><a href="mailto:b@hadeschain.org"><span class="icomoon icon-youjian">&nbsp;&nbsp;</span><span class="text">b@hadeschain.org</span></a></li>
+                    <li><span class="icomoon icon-dengdai">&nbsp;&nbsp;</span><span class="text">Saturday &mdash; Sunday 8:00am - 5:00pm</span></li>
+                  </ul>
+                </div>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                <li class="ftco-animate"><a href="https://twitter.com/hadeschain"><span class="icomoon icon-tuite"></span></a></li>
+                <li class="ftco-animate"><a href="https://github.com/HadesChain"><span class="icomoon icon-github"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+  Copyright &copy;2017-2018 All rights reserved | HADESCHAIN</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="https://lib.baomitu.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
+  <script src="https://lib.baomitu.com/popper.js/1.11.1/umd/popper.min.js"></script>
+  <script src="https://lib.baomitu.com/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://lib.baomitu.com/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://lib.baomitu.com/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+  <script src="https://lib.baomitu.com/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+  <script src="https://lib.baomitu.com/OwlCarousel2/2.3.1/owl.carousel.min.js"></script>
+  <script src="https://lib.baomitu.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="https://lib.baomitu.com/aos/2.0.4/aos.js"></script>
+  
+  <script src="https://lib.baomitu.com/jquery-animateNumber/0.0.14/jquery.animateNumber.min.js"></script>
+  <script src="https://lib.baomitu.com/jquery.mb.YTPlayer/3.1.1/jquery.mb.YTPlayer.min.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/main.js"></script>
+  <link href="https://fonts.proxy.ustclug.org/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">   
+  </body>
+</html>

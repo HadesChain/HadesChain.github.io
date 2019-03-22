@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bridge . BlockChain of Lottery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="https://lib.baomitu.com/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    
+    <link rel="stylesheet" href="https://lib.baomitu.com/OwlCarousel2/2.3.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://lib.baomitu.com/OwlCarousel2/2.3.1/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="https://lib.baomitu.com/aos/2.0.4/aos.css">
+
+    <link rel="stylesheet" href="https://lib.baomitu.com/ionicons/4.0.0-19/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_955055_3w9txr6ae9j.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+/*==========icon font=============*/
+@font-face {
+    font-family: "iconfont";
+    src: url('data:application/octet-stream;base64,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') format('truetype');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-style:normal;
+  font-size:50px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 110px;
+  color: #ff5656;
+}
+.icon-H:before {
+  font-family:"iconfont" !important;
+  font-style:normal; 
+  content: "\e67c";
+}
+
+#myTab {
+  background: #4285f4;
+    padding: .5em;
+    border-radius: .5em;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #356AC3;
+}
+#myTab a{
+  color: #FFF;
+}
+    </style>
+  </head>
+  <body>
+    
+      <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html"><i class="icon-H"></i> <span>Hades</span> <span>Chain</span></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="oi oi-menu"></span> Menu
+          </button>
+
+          <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"><a href="index.html" class="nav-link">首页</a></li>
+              <li class="nav-item"><a href="https://www.hadeschain.com/download.html" class="nav-link">钱包下载</a></li>
+              <li class="nav-item"><a href="./WhitePaper.pdf" class="nav-link">白皮书</a></li>
+              <li class="nav-item"><a href="https://explorer.hadeschain.org" class="nav-link">浏览器</a></li>
+              <li class="nav-item active"><a href="./bridge.html" class="nav-link">链桥</a></li>
+              <li class="nav-item"><a href="./faq.html" class="nav-link">常见问题</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- END nav -->
+
+    <section id="home" class="video-hero js-fullheight" style="height: 700px; background-image: url(images/bg_1.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+            <div class="overlay js-fullheight"></div>
+            <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-10 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">跨链互联 <strong>流通</strong>产生价值</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section clearfix mt-3" >
+      <div class="container">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-6  counter-wrap ftco-animate">
+            <h2 class="text-center">ETH2HDC 资产链桥</h2>
+            <ul class="nav nav-pills nav-fill" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="ex-tab" data-toggle="tab" href="#ex" role="tab" aria-controls="ex" aria-selected="true"><i class="icomoon icon-duihuan1"></i>&nbsp;兑换</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="query-tab" data-toggle="tab" href="#query" role="tab" aria-controls="query" aria-selected="false"><i class="icomoon icon-chaxun"></i>&nbsp;查询</a>
+              </li>
+            </ul>
+            <div class="tab-content pt-2" id="myTabContent">
+              <div class="tab-pane fade show active" id="ex" role="tabpanel" aria-labelledby="home-tab">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icomoon icon-yitaifang"> ETH</i></span>
+                  </div>
+                  <input type="number" step="0.001" min="0.001" placeholder="ETH数量" name="eth" class="form-control">
+                </div>
+                <div class="text-center">
+                  <i class="icomoon icon-duihuan"></i>
+                </div>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="icomoon icon-H">HDC</i></span>
+                  </div>
+                  <input type="number" step="1" min="1" placeholder="HDC数量" name="hdc" class="form-control">
+                </div>
+                <div>
+                    <p>
+                        <span>ETH地址:</span>
+                        <code id="eth-address">0xe34dc90530853417bc4630060f2689dacd87e8d9</code>&nbsp;
+                        <span style="font-family: icomoon" id="copy-button">&#xe6e5;</span>
+                    </p>
+
+                    <div id="ethereum-qr-code" class="image-wrapper float-left pr-3">
+                    </div>
+                    <ul class="float-left">
+                      <li>输入兑换数量,自动生成二维码</li>
+                      <li>扫描二维码或复制ETH地址发送ETH币</li>
+                      <li>5分钟左右收到HDC币</li>
+                      <li>HDC币收取情况可点击<a href="https://explorer.hadeschain.org">浏览器查询</a></li>
+                    </ul>
+                </div>
+                
+              </div>
+              <div class="tab-pane fade" id="query" role="tabpanel" aria-labelledby="profile-tab">
+                <form id="txform">
+                  <div class="form-row align-items-center">
+                    <div class="col-9">
+                      <label class="sr-only" for="tx">tx</label>
+                      <input type="text" class="form-control mb-8" id="tx" placeholder="请输入交易hash">
+                      <div class="invalid-feedback">
+                        请输入正确的交易hash(66位字符串)
+                      </div>
+                    </div>
+                    <div class="col-auto">
+                      <button type="submit" class="btn btn-primary mb-2">查询</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="mt-2">
+   
+                    <table class="table" id="rstable">
+                      
+                    </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+    <footer class="ftco-footer ftco-bg-dark ftco-section">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="logo"><i class="icon icon-H"><a href="index.html"></i><span>Hades</span><span>Chain</span></a></h2>
+              <p>哈迪斯链具有高性能、跨链交易、低手续费的特点，是为解决博彩业行业痛点而生的专用公链。</p>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Quick Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="https://www.hadeschain.com/download.html" class="py-2 d-block">钱包下载</a></li>
+                <li><a href="./WhitePaper.pdf" class="py-2 d-block">白皮书</a></li>
+                <li><a href="./faq.html" class="py-2 d-block">常见问题</a></li>
+                <li><a href="https://explorer.hadeschain.org" class="py-2 d-block">浏览器</a></li>
+                <li><a href="./bridge.html" class="py-2 d-block">链桥</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+                <div class="block-23 mb-3">
+                  <ul>
+                    <li><span class="icomoon icon-dingwei">&nbsp;&nbsp;</span><span class="text">364 E Main Street Suite 1004 Middletown, Delaware, USA</span></li>
+                    <li><a href="mailto:b@hadeschain.org"><span class="icomoon icon-youjian">&nbsp;&nbsp;</span><span class="text">b@hadeschain.org</span></a></li>
+                    <li><span class="icomoon icon-dengdai">&nbsp;&nbsp;</span><span class="text">Saturday &mdash; Sunday 8:00am - 5:00pm</span></li>
+                  </ul>
+                </div>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
+                <li class="ftco-animate"><a href="https://twitter.com/hadeschain"><span class="icomoon icon-tuite"></span></a></li>
+                <li class="ftco-animate"><a href="https://github.com/HadesChain"><span class="icomoon icon-github"></span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+  Copyright &copy;2017-2018 All rights reserved | HADESCHAIN</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+
+  <script src="https://lib.baomitu.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://lib.baomitu.com/jquery-migrate/3.0.1/jquery-migrate.min.js"></script>
+  <script src="https://lib.baomitu.com/popper.js/1.11.1/umd/popper.min.js"></script>
+  <script src="https://lib.baomitu.com/twitter-bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  <script src="https://lib.baomitu.com/jquery-easing/1.3/jquery.easing.min.js"></script>
+  <script src="https://lib.baomitu.com/waypoints/4.0.0/jquery.waypoints.min.js"></script>
+  <script src="https://lib.baomitu.com/stellar.js/0.6.2/jquery.stellar.min.js"></script>
+  <script src="https://lib.baomitu.com/OwlCarousel2/2.3.1/owl.carousel.min.js"></script>
+  <script src="https://lib.baomitu.com/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+  <script src="https://lib.baomitu.com/aos/2.0.4/aos.js"></script>
+  <script src="js/scrollax.min.js"></script>
+  <script src="js/ethereum-qr-code.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/web3.min.js"></script>
+  <link href="https://fonts.proxy.ustclug.org/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">   
+  <script>
+   (($,Web3)=>{
+     var ethPrice = {price:1,update:0};
+     var api = 'https://api.trustwallet.com/tickers?coin_id=60&currency=CNY';
+     var abi =   [{"constant":false,"inputs":[{"name":"reciver","type":"address"},{"name":"value","type":"uint256"},{"name":"txid","type":"uint256"}],"name":"send","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","funcName":"send(address,uint256,uint256)","signature":"0x67df93f2"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor","signature":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"}],"name":"onRecive","type":"event","funcName":"onRecive(address,uint256,uint256)","signature":"0xd220f928dd00b57785ac88cfd68cb4051b8dce7926cd14d16273b64826e1451f"},{"anonymous":false,"inputs":[{"indexed":true,"name":"txid","type":"uint256"},{"indexed":false,"name":"reciver","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"}],"name":"onSend","type":"event","funcName":"onSend(uint256,address,uint256,uint256)","signature":"0xa0d6cbbd1721a63c5f8908b04a696ddf6561f2c89135e262de01170a2d669bea"},{"constant":true,"inputs":[{"name":"txid","type":"uint256"}],"name":"isPay","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","funcName":"isPay(uint256)","signature":"0x2a5d2b90"}];
+
+     var config = {
+      "eth": {
+        "provider": "https://mainnet.infura.io/v3/389f987b9fc6471599713654e78e14eb",
+        "contract": "0xe34dc90530853417bc4630060f2689dacd87e8d9",
+        "fromBlock": 7386270,
+      },
+      "hdc": {
+        "provider": "https://main.hadeschain.org",
+        "contract": "0xc9ba5d63a8b6be91eaa582a981c021d274cae9c7",
+        "fromBlock": 240196,
+      },
+    };
+
+     var getPrice = function() {
+       if(ethPrice.price>0 && ((new Date()).getTime()/1000<ethPrice.update+300) ) {
+         return Promise.resolve(ethPrice);
+       } else {
+         return $.get(api,'JSON').then((rs)=>{
+           if(rs.status==true) {
+             ethPrice.price = rs.docs[0].price;
+             ethPrice.update = parseInt( (new Date()).getTime()/1000);
+             return Promise.resolve(ethPrice);
+           } else {
+             return Promise.reject(ethPrice);
+           }
+         });
+       }   
+     };
+        
+     getPrice().then((ep)=>{
+        $('input[name="eth"]').val(1).trigger('input');
+     });
+
+     $('input[type=number]').on('input',(o)=>{
+        getPrice().then((ep)=>{
+            if(o.target.name == 'eth') {
+              $('input[name="hdc"]').val( parseInt(ep.price*o.target.value) );
+            } else if(o.target.name == 'hdc') {
+              $('input[name="eth"]').val( (o.target.value/ep.price).toFixed(3) );
+            }
+
+            draw(o.target.value);
+        })
+     });
+
+    $('#copy-button').click(function(){
+        if(copy('eth-address')) {
+          this.innerHTML = '&#xe6e5;已复制';
+          setTimeout(()=>{this.innerHTML='&#xe6e5;'},2000)
+        }
+    });
+
+    $('#txform').submit((e)=>{
+      e.preventDefault();
+
+      if($('#tx').val().length!=66) {
+        $('#tx').addClass('is-invalid');
+        setTimeout(()=>{$('#tx').removeClass('is-invalid').val('')},2000);
+        return;
+      }
+      
+      $('button:submit').prop('disabled',true);
+      $('#rstable').empty().prepend('<tr id="loading"><td colspan="2" class="text-center text-danger"><img src="./images/loading.gif">;</td></tr>');
+      
+      var tx = $('#tx').val();
+      var w3eth = new Web3(new Web3.providers.HttpProvider(config.eth.provider));
+      var w3hdc = new Web3(new Web3.providers.HttpProvider(config.hdc.provider));
+
+      new Promise((resolve,reject)=>{
+        w3eth.eth.getTransaction(tx,(err,rs)=>{
+          if(rs===null) {
+            reject('未查到相关交易');
+          } else if(err!==null) {
+            reject(err)
+          } else if(rs.to != config.eth.contract) {
+            reject('ETH未转至指定合约地址');
+          } else {
+            resolve(rs);
+          }
+        });
+      }).then((ts)=>{
+        var str = '<tr><th colspan="2">ETH发送状态</th></tr><tr><td>ETH发送方</td><td>sender</td></tr><tr><td>ETH接收方</td><td><a href="https://etherscan.io/address/'+config.eth.contract+'">收款合约</a></td></tr><tr><td>数量</td><td>amount Eth</td></tr><tr><td>状态</td><td>已入账</td></tr>';
+        str = str.replace('sender',ts.from.replace(/^(\w{8}).*(\w{8})/,'$1...$2'));
+        str = str.replace('amount',Web3.prototype.fromWei(ts.value));
+        $('#rstable').prepend(str);
+
+        return new Promise((resolve,reject)=>{
+          var ins = w3hdc.eth.contract(abi).at(config.hdc.contract);
+          ins.onSend({txid:ts.hash},{fromBlock:config.hdc.fromBlock}).get((err,rs)=>{
+            if(rs.length==0 || err!==null) {
+              reject('未找到相关记录');
+            } else {
+              resolve(rs[0]);
+            }
+          });
+        });
+      }).then((ev)=>{
+        var str = '<tr><th colspan="2">HDC发送状态</th></tr><tr><td>HDC发送方</td><td><a href="https://explorer.hadeschain.org/address/'+config.hdc.contract+'">打款合约</a></td></tr><tr><td>HDC接收方</td><td>reciver</td></tr><tr><td>数量</td><td>amount</td></tr><tr><td>状态</td><td>已转账. <a href="https://explorer.hadeschain.org/tx/txstring">点击查询</a></td></tr>';
+        str = str.replace('reciver',ev.args.reciver.replace(/^(\w{8}).*(\w{8})/,'$1...$2'));
+        str = str.replace('amount',(Web3.prototype.fromWei(ev.args.value)).toFixed(2) );
+        str = str.replace('txstring',ev.transactionHash);
+        $('#rstable').append(str).children('#loading').remove();
+        $('button:submit').prop('disabled',false);
+      }).catch((e)=>{
+        $('#loading td').html(e+'<span class="text-secondary"><br>如有疑问,可发送邮件至<a href="mailto:support@hadeschain.org">support@hadeschain.org</a>查询</span>');
+        $('button:submit').prop('disabled',false);
+      });
+      
+    });
+
+    var draw = function(v) {
+         const qr = new EthereumQRPlugin();
+
+         // static config value
+         const sendDetails = {
+            to: config.eth.contract,
+            value: Web3.prototype.toWei(v),
+         };
+
+         const configDetails = {
+          size: 180,
+          selector: '#ethereum-qr-code',
+          options: {margin: 2},
+         };
+     
+         qr.toCanvas(sendDetails, configDetails);
+     }
+
+    var copy = function(id){
+        var el = document.getElementById(id);
+        if(el===null) {
+            return false;
+        }
+        var inp = document.createElement('input');
+        inp.readonly = true;
+        inp.type = 'text';
+        inp.value = el.innerText;
+        inp.style.position = 'absolute';
+        inp.style.zIndex = -99;
+        inp.style.top = '-30px';
+        document.body.appendChild(inp);
+        
+        inp.select();
+        inp.setSelectionRange(0, inp.value.length);
+        
+        if(document.execCommand("copy",false,null)===false) {
+            document.body.removeChild(inp);
+            return false;
+        } else {
+            document.body.removeChild(inp);
+            return true;
+        }
+    };
+
+   })(jQuery,Web3)
+  </script>
+  </body>
+</html>
