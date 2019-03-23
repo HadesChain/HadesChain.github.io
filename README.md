@@ -1,5 +1,5 @@
 # HadesChain 哈迪斯链
-BlockChain for Lottery 博彩业的基础公链 
+BlockChain for Lottery 博彩业的基础公链  
 [https://www.hadeschain.org](https://www.hadeschain.org)
 
 ## 成果
