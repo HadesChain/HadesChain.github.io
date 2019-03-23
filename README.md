@@ -22,4 +22,4 @@ Twitter: http://www.twitter.com/HadesChain
 - 前端 -项目UI及前端开发
 - 翻译 -把项目介绍给更多国家的人
 
-感兴趣者直接在本项目在issue 
+感兴趣者直接在本项目发issue 
