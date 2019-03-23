@@ -2,7 +2,7 @@
 BlockChain for Lottery 博彩业的基础公链
 [https://www.hadeschain.org](https://www.hadeschain.org)
 
-## 成果
+## 生态
 区块浏览器 Explorer [https://explorer.hadeschain.org](https://explorer.hadeschain.org)
 
 链桥 HadesBridge [https://github.com/HadesChain/HadesBridge](https://github.com/HadesChain/HadesBridge)
