@@ -246,8 +246,8 @@
       },
       "hdc": {
         "provider": "https://main.hadeschain.org",
-        "contract": "0xc9ba5d63a8b6be91eaa582a981c021d274cae9c7",
-        "fromBlock": 240196,
+        "contract": "0x728a6404d15120c923529e9cdfa36d2f969d1cc1",
+        "fromBlock": 156053,
       },
     };
 
@@ -325,6 +325,7 @@
         $('#rstable').prepend(str);
 
         return new Promise((resolve,reject)=>{
+          $('#rstable').append('<tr><th colspan="2">HDC发送状态</th></tr><tr>');
           var ins = w3hdc.eth.contract(abi).at(config.hdc.contract);
           ins.onSend({txid:ts.hash},{fromBlock:config.hdc.fromBlock}).get((err,rs)=>{
             if(rs.length==0 || err!==null) {
@@ -335,7 +336,7 @@
           });
         });
       }).then((ev)=>{
-        var str = '<tr><th colspan="2">HDC发送状态</th></tr><tr><td>HDC发送方</td><td><a href="https://explorer.hadeschain.org/address/'+config.hdc.contract+'">打款合约</a></td></tr><tr><td>HDC接收方</td><td>reciver</td></tr><tr><td>数量</td><td>amount</td></tr><tr><td>状态</td><td>已转账. <a href="https://explorer.hadeschain.org/tx/txstring">点击查询</a></td></tr>';
+        var str = '<td>HDC发送方</td><td><a href="https://explorer.hadeschain.org/address/'+config.hdc.contract+'">打款合约</a></td></tr><tr><td>HDC接收方</td><td>reciver</td></tr><tr><td>数量</td><td>amount</td></tr><tr><td>状态</td><td>已转账. <a href="https://explorer.hadeschain.org/tx/txstring">点击查询</a></td></tr>';
         str = str.replace('reciver',ev.args.reciver.replace(/^(\w{8}).*(\w{8})/,'$1...$2'));
         str = str.replace('amount',(Web3.prototype.fromWei(ev.args.value)).toFixed(2) );
         str = str.replace('txstring',ev.transactionHash);
