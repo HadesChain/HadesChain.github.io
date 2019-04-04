@@ -322,10 +322,10 @@
         var str = '<tr><th colspan="2">ETH发送状态</th></tr><tr><td>ETH发送方</td><td>sender</td></tr><tr><td>ETH接收方</td><td><a href="https://etherscan.io/address/'+config.eth.contract+'">收款合约</a></td></tr><tr><td>数量</td><td>amount Eth</td></tr><tr><td>状态</td><td>已入账</td></tr>';
         str = str.replace('sender',ts.from.replace(/^(\w{8}).*(\w{8})/,'$1...$2'));
         str = str.replace('amount',Web3.prototype.fromWei(ts.value));
-        $('#rstable').prepend(str);
+        $('#loading').before(str);
+        $('#loading').before('<tr><th colspan="2">HDC发送状态</th></tr>');
 
         return new Promise((resolve,reject)=>{
-          $('#rstable').append('<tr><th colspan="2">HDC发送状态</th></tr><tr>');
           var ins = w3hdc.eth.contract(abi).at(config.hdc.contract);
           ins.onSend({txid:ts.hash},{fromBlock:config.hdc.fromBlock}).get((err,rs)=>{
             if(rs.length==0 || err!==null) {
@@ -336,11 +336,11 @@
           });
         });
       }).then((ev)=>{
-        var str = '<td>HDC发送方</td><td><a href="https://explorer.hadeschain.org/address/'+config.hdc.contract+'">打款合约</a></td></tr><tr><td>HDC接收方</td><td>reciver</td></tr><tr><td>数量</td><td>amount</td></tr><tr><td>状态</td><td>已转账. <a href="https://explorer.hadeschain.org/tx/txstring">点击查询</a></td></tr>';
+        var str = '<tr><td>HDC发送方</td><td><a href="https://explorer.hadeschain.org/address/'+config.hdc.contract+'">打款合约</a></td></tr><tr><td>HDC接收方</td><td>reciver</td></tr><tr><td>数量</td><td>amount</td></tr><tr><td>状态</td><td>已转账. <a href="https://explorer.hadeschain.org/tx/txstring">点击查询</a></td></tr>';
         str = str.replace('reciver',ev.args.reciver.replace(/^(\w{8}).*(\w{8})/,'$1...$2'));
         str = str.replace('amount',(Web3.prototype.fromWei(ev.args.value)).toFixed(2) );
         str = str.replace('txstring',ev.transactionHash);
-        $('#rstable').append(str).children('#loading').remove();
+        $('#loading').before(str).remove();
         $('button:submit').prop('disabled',false);
       }).catch((e)=>{
         $('#loading td').html(e+'<span class="text-secondary"><br>如有疑问,可发送邮件至<a href="mailto:support@hadeschain.org">support@hadeschain.org</a>查询</span>');
