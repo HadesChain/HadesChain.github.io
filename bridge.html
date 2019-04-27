@@ -242,12 +242,10 @@
       "eth": {
         "provider": "https://mainnet.infura.io/v3/389f987b9fc6471599713654e78e14eb",
         "contract": "0xe34dc90530853417bc4630060f2689dacd87e8d9",
-        "fromBlock": 7386270,
       },
       "hdc": {
         "provider": "https://main.hadeschain.org",
         "contract": "0x728a6404d15120c923529e9cdfa36d2f969d1cc1",
-        "fromBlock": 156053,
       },
     };
 
@@ -327,7 +325,7 @@
 
         return new Promise((resolve,reject)=>{
           var ins = w3hdc.eth.contract(abi).at(config.hdc.contract);
-          ins.onSend({txid:ts.hash},{fromBlock:config.hdc.fromBlock}).get((err,rs)=>{
+          ins.onSend({txid:ts.hash},{fromBlock:0}).get((err,rs)=>{
             if(rs.length==0 || err!==null) {
               reject('未找到相关记录');
             } else {
