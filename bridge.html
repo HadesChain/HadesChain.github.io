@@ -272,7 +272,7 @@
      $('input[type=number]').on('input',(o)=>{
         getPrice().then((ep)=>{
             if(o.target.name == 'eth') {
-              $('input[name="hdc"]').val( parseInt(ep.price*o.target.value) );
+              $('input[name="hdc"]').val( (ep.price*o.target.value).toFixed(2) );
             } else if(o.target.name == 'hdc') {
               $('input[name="eth"]').val( (o.target.value/ep.price).toFixed(3) );
             }
