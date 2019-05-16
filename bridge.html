@@ -108,16 +108,16 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icomoon icon-yitaifang"> ETH</i></span>
                   </div>
-                  <input type="number" step="0.001" min="0.001" placeholder="ETH数量" name="eth" class="form-control">
+                  <input type="number" step="0.001" min="0.001" placeholder="ETH数量" name="eth" class="form-control" disabled>
                 </div>
-                <div class="text-center">
-                  <i class="icomoon icon-duihuan"></i>
+                <div class="text-center"><span id="eprice"></span>
+                  <i class="icomoon icon-duihuan"></i><span id="hprice"></span>
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="icomoon icon-H">HDC</i></span>
                   </div>
-                  <input type="number" step="1" min="1" placeholder="HDC数量" name="hdc" class="form-control">
+                  <input type="number" step="1" min="1" placeholder="HDC数量" name="hdc" class="form-control" disabled>
                 </div>
                 <div>
                     <p>
@@ -129,6 +129,7 @@
                     <div id="ethereum-qr-code" class="image-wrapper float-left pr-3">
                     </div>
                     <ul class="float-left">
+                      <li>HDC每售出万枚,价格上涨1%</li>
                       <li>输入兑换数量,自动生成二维码</li>
                       <li>扫描二维码或复制ETH地址发送ETH币</li>
                       <li>5分钟左右收到HDC币</li>
@@ -234,6 +235,22 @@
   <link href="https://fonts.proxy.ustclug.org/css?family=Work+Sans:100,200,300,400,500,600,700,800" rel="stylesheet">   
   <script>
    (($,Web3)=>{
+     var calc = {
+          b : 1,
+          i : 1e-6,
+          supply : 0,
+          hdctocny : function(n) {
+              return (n*this.i*this.supply + n*this.b + n*n*this.i/2);
+          },
+          cnytohdc : function(cny) {
+              return (
+                  (Math.sqrt(this.supply*this.supply+2*this.supply*this.b/this.i+2*cny/this.i+this.b*this.b/this.i/this.i)-this.b/this.i) - this.supply
+                  );
+          },
+          c : function() {
+            return 1 + this.i * this.supply;
+          }
+      };
      var ethPrice = {price:1,update:0};
      var api = 'https://api.trustwallet.com/tickers?coin_id=60&currency=CNY';
      var abi =   [{"constant":false,"inputs":[{"name":"reciver","type":"address"},{"name":"value","type":"uint256"},{"name":"txid","type":"uint256"}],"name":"send","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","funcName":"send(address,uint256,uint256)","signature":"0x67df93f2"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor","signature":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"}],"name":"onRecive","type":"event","funcName":"onRecive(address,uint256,uint256)","signature":"0xd220f928dd00b57785ac88cfd68cb4051b8dce7926cd14d16273b64826e1451f"},{"anonymous":false,"inputs":[{"indexed":true,"name":"txid","type":"uint256"},{"indexed":false,"name":"reciver","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"}],"name":"onSend","type":"event","funcName":"onSend(uint256,address,uint256,uint256)","signature":"0xa0d6cbbd1721a63c5f8908b04a696ddf6561f2c89135e262de01170a2d669bea"},{"constant":true,"inputs":[{"name":"txid","type":"uint256"}],"name":"isPay","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","funcName":"isPay(uint256)","signature":"0x2a5d2b90"}];
@@ -249,7 +266,7 @@
       },
     };
 
-     var getPrice = function() {
+    var getPrice = function() {
        if(ethPrice.price>0 && ((new Date()).getTime()/1000<ethPrice.update+300) ) {
          return Promise.resolve(ethPrice);
        } else {
@@ -263,23 +280,36 @@
            }
          });
        }   
-     };
-        
-     getPrice().then((ep)=>{
-        $('input[name="eth"]').val(1).trigger('input');
-     });
+    };
+    
+    (new Promise((resolve,reject)=>{
+      var hdc = new Web3(new Web3.providers.HttpProvider(config.hdc.provider));
+      hdc.eth.getBalance(config.hdc.contract , (err,rs)=>{
+        if(err!==null) reject(err);
+        else resolve(rs.toString());
+      })
+    })).then((rs)=>{
+      calc.supply = 6000000-Web3.prototype.fromWei(rs);
+      $('#hprice').html(calc.c().toFixed(4));
+      return getPrice();
+    }).then((ep)=>{
+      $('#eprice').html(ep.price.toFixed(0));
+      $('input[name="eth"]').prop('disabled',false);
+      $('input[name="hdc"]').prop('disabled',false);
+      $('input[name="eth"]').val(1).trigger('input');
+    }).catch((e)=>{console.log(e)});
 
-     $('input[type=number]').on('input',(o)=>{
+    $('input[type=number]').on('input',(o)=>{
         getPrice().then((ep)=>{
             if(o.target.name == 'eth') {
-              $('input[name="hdc"]').val( (ep.price*o.target.value).toFixed(2) );
+              $('input[name="hdc"]').val( calc.cnytohdc(ep.price*o.target.value).toFixed(2) );
             } else if(o.target.name == 'hdc') {
-              $('input[name="eth"]').val( (o.target.value/ep.price).toFixed(3) );
+              $('input[name="eth"]').val( calc.hdctocny(o.target.value/ep.price).toFixed(3) );
             }
 
-            draw(o.target.value);
+            draw($('input[name="eth"]').val());
         })
-     });
+    });
 
     $('#copy-button').click(function(){
         if(copy('eth-address')) {
