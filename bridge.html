@@ -252,7 +252,7 @@
           }
       };
      var ethPrice = {price:1,update:0};
-     var api = 'https://api.trustwallet.com/tickers?coin_id=60&currency=CNY';
+     var api = 'https://otc-api.eiijo.cn/v1/data/trade-market?coinId=3&currency=1&tradeType=sell&currPage=1&payMethod=0&country=37&blockType=general&online=1&range=0&amount';
      var abi =   [{"constant":false,"inputs":[{"name":"reciver","type":"address"},{"name":"value","type":"uint256"},{"name":"txid","type":"uint256"}],"name":"send","outputs":[],"payable":false,"stateMutability":"nonpayable","type":"function","funcName":"send(address,uint256,uint256)","signature":"0x67df93f2"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor","signature":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"sender","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"}],"name":"onRecive","type":"event","funcName":"onRecive(address,uint256,uint256)","signature":"0xd220f928dd00b57785ac88cfd68cb4051b8dce7926cd14d16273b64826e1451f"},{"anonymous":false,"inputs":[{"indexed":true,"name":"txid","type":"uint256"},{"indexed":false,"name":"reciver","type":"address"},{"indexed":false,"name":"value","type":"uint256"},{"indexed":false,"name":"timestamp","type":"uint256"}],"name":"onSend","type":"event","funcName":"onSend(uint256,address,uint256,uint256)","signature":"0xa0d6cbbd1721a63c5f8908b04a696ddf6561f2c89135e262de01170a2d669bea"},{"constant":true,"inputs":[{"name":"txid","type":"uint256"}],"name":"isPay","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"view","type":"function","funcName":"isPay(uint256)","signature":"0x2a5d2b90"}];
 
      var config = {
@@ -271,8 +271,8 @@
          return Promise.resolve(ethPrice);
        } else {
          return $.get(api,'JSON').then((rs)=>{
-           if(rs.status==true) {
-             ethPrice.price = rs.docs[0].price;
+           if(rs.success==true && rs.data.length>0) {
+             ethPrice.price = rs.data[0].price;
              ethPrice.update = parseInt( (new Date()).getTime()/1000);
              return Promise.resolve(ethPrice);
            } else {
