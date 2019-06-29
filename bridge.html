@@ -328,7 +328,7 @@
       }
       
       $('button:submit').prop('disabled',true);
-      $('#rstable').empty().prepend('<tr id="loading"><td colspan="2" class="text-center text-danger"><img src="./images/loading.gif">;</td></tr>');
+      $('#rstable').empty().prepend('<tr id="loading"><td colspan="2" class="text-center text-danger"><img src="./images/loading.gif"></td></tr>');
       
       var tx = $('#tx').val();
       var w3eth = new Web3(new Web3.providers.HttpProvider(config.eth.provider));
