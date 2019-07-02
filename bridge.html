@@ -289,7 +289,7 @@
         else resolve(rs.toString());
       })
     })).then((rs)=>{
-      calc.supply = 6000000-Web3.prototype.fromWei(rs);
+      calc.supply = 20000000-Web3.prototype.fromWei(rs);
       $('#hprice').html(calc.c().toFixed(4));
       return getPrice();
     }).then((ep)=>{
